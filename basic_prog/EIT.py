@@ -28,7 +28,6 @@ else:
 # 2. Store frames in matrix
 eit_data_matrix = data[:actual_frames * FRAME_SIZE].reshape(actual_frames, FRAME_SIZE)
 
-# --- CRITICAL FIX: Clean the data to remove NaN/Inf artifacts ---
 # Replace NaN, +Inf, and -Inf with 0.0 to ensure min/max/sum calculations are valid.
 eit_data_matrix_cleaned = np.nan_to_num(eit_data_matrix, nan=0.0, posinf=0.0, neginf=0.0)
 
